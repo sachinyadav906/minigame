@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini game</title>
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;background: #f0f0f0;
+
+        }
+        input{
+            padding: 10px;
+            font-size: 18px;
+            width: 80px;
+            text-align: center;
+            border: 2px solid #ccc;
+            transition: 0.1s;
+            border-radius: 3px;
+        }
+        input:hover{
+        border-color:blue ;
+        box-shadow: 0 0 10px lightblue;
+        transform: scale(1.07);
+
+        }
+        button{
+            padding: 10px 15px;
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+
+        }
+        button:hover{
+            background: #0056b3;
+            transform: scale(1.1.2);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+            border-radius: 5px;
+        }
+
+        #msg{
+            margin: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        h1{
+            color: red;
+            transition: 1.2s;
+        }
+        p{
+            font-family: 'arial';
+        }
+        
+    </style>
+<body>
+   
+
+    <h1>Guess the number game</h1>
+    <p>1 se 50 ke bich number guess karo</p>
+    <input type="number" id="guess" min="1" max="50">   
+    <button onclick="checkGuess()">check</button>
+    <div id="msg"></div>
+    <script>
+        let randomNumber=Math.floor(Math.random()*50)
+        +1;
+        console.log(randomNumber);
+
+        function checkGuess(){
+            let userGuess= document.getElementById("guess").value;
+            let msg=document.getElementById("msg");
+
+            if(userGuess == randomNumber){
+                msg.innerHTML="Shahi javab! Tum jeet gaye!";
+                msg.style.color="green";
+            }
+            else if (userGuess< randomNumber){
+                msg.innerHTML="Thoda bada  number try karo!"+ randomNumber;
+                msg.style.color="red"
+            }
+            else{
+                msg.innerHTML ="Thoda chhota number try karo!";
+                msg.style.color="orange "
+            }
+            
+        }
+    </script>
+
+</body>
+</html>
